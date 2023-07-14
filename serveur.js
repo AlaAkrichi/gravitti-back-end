@@ -12,7 +12,8 @@ app.use(cors())
 const port = process.env.PORT || 5000
 
 
-
+app.use("/api/utilisateur",require("./routes/UtilisateurRoutes"))
+app.use("/api/authentification",require("./routes/AuthentificationRoutes"))
 app.listen(port,()=>{
     console.log(`serveur started on port ${port}`.blue.bold.underline)
 })
