@@ -7,7 +7,8 @@ const getAllUtilisateurs = asyncHandler(async (req,res)=>{
         const utilisateurs = await Utilisateur.find().populate("utilisateur")
         res.status(200).json(utilisateurs)
     }catch (e){
-        res.status(500).json({"message":"somthing went wrong"})
+        res.status(500)
+        throw new Error("somthing went wrong")
     }
 })
 module.exports = {

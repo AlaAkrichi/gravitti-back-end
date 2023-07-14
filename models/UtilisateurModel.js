@@ -12,7 +12,7 @@ const utilisateurSchema = mongoose.Schema({
         type : String,
         required : true
     },
-    mptDePasse: {
+    motDePasse: {
         type : String,
         required:true
     },
