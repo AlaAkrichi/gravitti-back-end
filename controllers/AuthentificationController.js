@@ -5,6 +5,7 @@ const asyncHandler = require("express-async-handler")
 const Utilisateur = require("../models/UtilisateurModel")
 
 const Register = asyncHandler (async (req,res)=>{
+    console.log(req.body)
     const {nom , prenom , email ,motDePasse,dateNaissance,tel}= req.body
     if(!nom || !prenom || !email ||!motDePasse || !dateNaissance || !tel){
         res.status(400)

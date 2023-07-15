@@ -13,9 +13,10 @@ app.use(express.urlencoded({extended:false}))
 app.use(cors())
 const port = process.env.PORT || 5000
 
-
+app.use('/uplods/*',express.static('uploads'))
 app.use("/api/utilisateur",require("./routes/UtilisateurRoutes"))
 app.use("/api/authentification",require("./routes/AuthentificationRoutes"))
+app.use("/api/designes",require("./routes/DesignesRoutes"))
 app.use(errorHandler)
 app.listen(port,()=>{
     console.log(`serveur started on port ${port}`.blue.bold.underline)
