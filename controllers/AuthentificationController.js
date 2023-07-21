@@ -48,7 +48,7 @@ const Login = asyncHandler(async (req,res)=>{
                 nom:utilisateur.nom,
                 prenom:utilisateur.prenom,
                 email:utilisateur.email,
-                token :makeToken(utilisateur._id,utilisateur.email)
+                token :makeToken(utilisateur._id,utilisateur.email,utilisateur.role)
             }
         )
     }else{
@@ -58,8 +58,8 @@ const Login = asyncHandler(async (req,res)=>{
 
 })
 
-const makeToken = (id,email)=>{
-    return jwt.sign({id,email},process.env.JWT_SECRET,{
+const makeToken = (id,email,role)=>{
+    return jwt.sign({id,email,role},process.env.JWT_SECRET,{
         expiresIn: "1d"
     })
 }
