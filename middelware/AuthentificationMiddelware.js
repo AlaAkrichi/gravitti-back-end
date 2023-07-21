@@ -29,9 +29,10 @@ const protect = (role) =>
 const userProtection = protect();
 const adminProtection = protect("Administrateur");
 const designerProtection = protect("Designeur");
-
+const imprimaireProtecttion = protect("Imprimeur")
 module.exports = {
     userProtection,
     designerProtection,
-    adminProtection
+    adminProtection,
+    imprimaireProtecttion
 };

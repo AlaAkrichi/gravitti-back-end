@@ -20,7 +20,7 @@ const DesignSchema = mongoose.Schema({
         type : Number,
         required : true
     },
-    utilisateur : {
+    designer : {
         type : mongoose.Schema.Types.ObjectId,
         ref : "utilisateur",
         required : true

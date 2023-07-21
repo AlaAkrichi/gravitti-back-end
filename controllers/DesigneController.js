@@ -4,13 +4,13 @@ const Designe = require("../models/DesignModel")
 
 const addDesigne=asyncHandler(async (req,res)=>{
 try {
-    const {title,dateAjout,description,rating,utilisateur} = req.body
+    const {title,dateAjout,description,rating,designer} = req.body
     let designe = new  Designe({
         title:title,
         dateAjout:Date(dateAjout),
         description : description,
         rating : rating,
-        utilisateur : utilisateur
+        designer : designer
     })
     if (req.file){
         designe.fichier=req.file.path
@@ -21,7 +21,7 @@ try {
         }
     ).catch(erreur=>{
         res.status(401)
-        throw new Error('An erreur occured')
+        throw new Error(erreur.message)
     })
 
 }catch (e){
