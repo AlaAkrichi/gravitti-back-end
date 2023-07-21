@@ -23,7 +23,17 @@ const addProduit =asyncHandler(async (designe,commande,data)=>{
         throw new Error(err.message)
     }
 })
-
+const deleteProduit =asyncHandler(async (id)=>{
+    try{
+        const produit = await Produit.findByIdAndDelete(id)
+        if(produit){
+            return produit
+        }
+    }catch (e) {
+        throw new Error("somting went wrong")
+    }
+})
 module.exports={
-    addProduit
+    addProduit,
+    deleteProduit
 }
