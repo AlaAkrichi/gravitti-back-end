@@ -13,8 +13,9 @@ const CommandeSchema = mongoose.Schema({
         required : true
     },
     etatCommande : {
-        type : String,
-        required: true
+        type:String,
+        enum:["En_cours",  "envoyee"],
+        default:"En_cours"
     },
     produit:{
         type : mongoose.Schema.Types.ObjectId,

@@ -21,7 +21,7 @@ const getAllUtilisateurs = asyncHandler(async (req,res)=>{
 const getUtilisateur = asyncHandler(async (req,res)=>{
     try {
         let id = req.params.id
-        const utilisateur = await Utilisateur.findById(id).populate(
+        const utilisateur = await Utilisateur.findById(id).populate("commentaires commandes produits designs").populate(
             {
                 path:"utilisateur",
                 select :"-motDePasse"

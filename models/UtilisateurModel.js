@@ -32,7 +32,23 @@ const utilisateurSchema = mongoose.Schema({
     utilisateur:{
         type:mongoose.Schema.Types.ObjectId,
         ref : 'utilisateur'
-    }
+    },
+    commentaires : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "commentaire"
+    }],
+    commandes : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "commande"
+    }],
+    produits : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "produit"
+    }],
+    designs : [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "designe"
+    }]
 })
 
 module.exports = mongoose.model('utilisateur',utilisateurSchema)

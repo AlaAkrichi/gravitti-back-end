@@ -13,6 +13,7 @@ const protect = (role) =>
                 const decode = jwt.verify(token, process.env.JWT_SECRET);
                 req.user = await Utilisateur.findById(decode.id).select("-motDePass");
                 if (role && req.user.role !== role) {
+                    res.status(401);
                     throw new Error("Not authorized");
                 }
                 next();
@@ -30,10 +31,10 @@ const protect = (role) =>
 const userProtection = protect();
 const adminProtection = protect("Administrateur");
 const designerProtection = protect("Designeur");
-const imprimaireProtecttion = protect("Imprimeur")
+const imprimaireProtection = protect("Imprimeur")
 module.exports = {
     userProtection,
     designerProtection,
     adminProtection,
-    imprimaireProtecttion
+    imprimaireProtection
 };
